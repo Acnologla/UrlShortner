@@ -1,0 +1,32 @@
+<center><h1>URL shortener</h1></center>
+<input id = 'inputo' type='url'placeholder="URL Here">
+<meta name="csrf" content="<%= Plug.CSRFProtection.get_csrf_token() %>">
+<script
+  src="https://code.jquery.com/jquery-2.2.4.js"
+  integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+  crossorigin="anonymous"></script>
+  <script>
+  var csrf = document.querySelector("meta[name=csrf]").content;
+
+  $("#inputo").keyup(function(e){
+    if(e.keyCode == 13 && $("#inputo").val() != ""){
+     $.ajax({
+     type: "POST",
+         headers: {
+        "X-CSRF-TOKEN": csrf 
+    },
+     url: "/url",
+     data: {
+     url:$("#inputo").val()
+     }, 
+      done:function(params){
+        console.log(params)
+      }
+   }).done(function(params){
+      if (params)$("#inputo").val(params.url)  
+      else $("#inputo").val("Invalid url")
+   });
+
+    }
+});
+  </script>
