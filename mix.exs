@@ -43,7 +43,9 @@ defmodule Url.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
-      {:distillery, "~> 1.4"}
+      {:distillery, "~> 1.4"},
+      {:edeliver, "~> 1.4.3"}
+
 
     ]
   end
