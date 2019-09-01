@@ -1,3 +1,3 @@
 # UrlShortner
 
-An simple Url shortner using phoenix framework
+A simple Url shortner using phoenix framework
